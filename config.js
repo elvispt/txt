@@ -1,7 +1,8 @@
 (function (window) {
 
   const cfg = {
-    'indentSize': 2,
+    storeKey: 'localStorageX',
+    indentSize: 2,
   };
 
   window.cfg = cfg;

@@ -19,6 +19,7 @@ body {
   grid-template-rows: auto 1fr auto;
   grid-gap: 1rem;
   padding: 3rem;
+  overflow-y: hidden;
 }
 .container .header {
   background: #a07236;
@@ -28,6 +29,7 @@ body {
 .container .main {
   grid-area: main;
   background: #ffa600;
+  overflow-y: scroll;
 }
 /* ./GRID */
 

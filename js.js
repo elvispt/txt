@@ -1,9 +1,38 @@
 document.addEventListener('DOMContentLoaded', function () {
   const txt = document.getElementById('txt');
-  txt.contentEditable = true;
-  statusUp();
-  tab(txt);
+  init(txt);
+
+
 });
+
+function init(txt) {
+  txt.contentEditable = 'true';
+  getFromLocalStorage(txt);
+  tab(txt);
+
+  setInterval(() => {
+    statusUp('saving...');
+    saveToLocalStorage(txt);
+    statusUp();
+  }, 1000);
+}
+
+function getFromLocalStorage(txt) {
+  const key = window.cfg.storeKey;
+  const localStorage = window.localStorage;
+
+  let contents = localStorage.getItem(key);
+  if (contents) {
+    txt.innerText = contents;
+  }
+}
+
+function saveToLocalStorage(txt) {
+  const key = window.cfg.storeKey;
+  const localStorage = window.localStorage;
+
+  localStorage.setItem(key, txt.innerText);
+}
 
 const statusUp = (function () {
   let _status;
@@ -15,10 +44,10 @@ const statusUp = (function () {
     return _status;
   }
 
-  return function () {
+  return function (text = '') {
     let status = getStatusEl();
     status.innerHTML = '';
-    status.insertAdjacentHTML('afterbegin', '<div>editing</div>');
+    status.insertAdjacentHTML('afterbegin', `<div>${text}</div>`);
   }
 }());
 
