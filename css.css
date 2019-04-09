@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background: #424242;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+/* GRID */
+.container {
+  display: grid;
+  grid-template-areas: 
+    "header header header"
+    "main main main"
+  ;
+  height: 100vh;
+  grid-template-columns: 200px 1fr 200px;
+  grid-template-rows: auto 1fr auto;
+  grid-gap: 1rem;
+  padding: 3rem;
+}
+.container .header {
+  background: #a07236;
+  grid-area: header;
+  height: 5rem;
+}
+.container .main {
+  grid-area: main;
+  background: #ffa600;
+}
+/* ./GRID */
+
+.main .outer {
+  height: calc(100% - 1rem);
+  padding: 1rem 1rem 0;
+  background: #ffa600;
+}
+.main .txt {
+  background: #424242;
+  height: 100%;
+  padding: 1rem;
+  font-family: monospace;
+  overflow-y: scroll;
+  color: #f2f2f2;
+}
+.main .status {
+  height: 1rem;
+  background: #a07236;
+}
