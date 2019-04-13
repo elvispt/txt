@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
   const txt = document.getElementById('txt');
   init(txt);
-
-
 });
 
 function init(txt) {
@@ -39,7 +37,7 @@ const statusUp = (function () {
 
   function getStatusEl() {
     if (!_status) {
-      _status = document.querySelector('.main .status');
+      _status = document.querySelector('.container .status');
     }
     return _status;
   }

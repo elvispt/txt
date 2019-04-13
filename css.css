@@ -10,33 +10,49 @@ body {
 /* GRID */
 .container {
   display: grid;
-  grid-template-areas: 
+  grid-template-areas:
     "header header header"
     "main main main"
+    "status status status"
   ;
   height: 100vh;
-  grid-template-columns: 200px 1fr 200px;
-  grid-template-rows: auto 1fr auto;
-  grid-gap: 1rem;
-  padding: 3rem;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: .1rem;
+  padding: 1rem;
   overflow-y: hidden;
 }
+@media (min-width: 768px) {
+  .container {
+    padding: 3rem;
+  }
+}
 .container .header {
-  background: #a07236;
   grid-area: header;
-  height: 5rem;
 }
 .container .main {
   grid-area: main;
-  background: #ffa600;
-  overflow-y: scroll;
+  overflow: hidden;
+}
+.container .status {
+  grid-area: status;
 }
 /* ./GRID */
+
+.header {
+  background: #a07236;
+  height: 1rem;
+}
+
+.main {
+  background: #ffa600;
+}
 
 .main .outer {
   height: calc(100% - 1rem);
   padding: 1rem 1rem 0;
   background: #ffa600;
+  overflow: hidden;
 }
 .main .txt {
   background: #424242;
@@ -46,7 +62,8 @@ body {
   overflow-y: scroll;
   color: #f2f2f2;
 }
-.main .status {
+
+.status {
   height: 1rem;
   background: #a07236;
 }
