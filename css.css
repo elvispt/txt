@@ -17,9 +17,8 @@ body {
   ;
   height: 100vh;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
+  grid-template-rows: auto 1fr auto;
   grid-gap: .1rem;
-  padding: 1rem;
   overflow-y: hidden;
 }
 @media (min-width: 768px) {
@@ -33,6 +32,7 @@ body {
 .container .main {
   grid-area: main;
   overflow: hidden;
+  box-shadow: 1px 1px 28px #5a5a5a;
 }
 .container .status {
   grid-area: status;
@@ -42,15 +42,26 @@ body {
 .header {
   background: #a07236;
   height: 1rem;
-}
+  font-size: 0.9rem;
+  font-family: "DejaVu Sans", sans-serif;
 
-.main {
-  background: #ffa600;
+}
+.header .inner {
+  display: flex;
+}
+.header .inner > div {
+  flex: 1;
+
+}
+.header .inner .last-save {
+  text-align: right;
+}
+.header .inner .last-save .date {
+  width: 16rem;
 }
 
 .main .outer {
-  height: calc(100% - 1rem);
-  padding: 1rem 1rem 0;
+  height: 100%;
   background: #ffa600;
   overflow: hidden;
 }
